@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62488e6a-a9ee-4639-a716-67c931029274">
+	<property name="ireport.zoom" value="0.9075000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="pno_cif" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pnama_debitur" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tb_jm_kpr.`no_cif` AS tb_jm_kpr_no_cif,
+     tb_jm_kpr.`no_ktp` AS tb_jm_kpr_no_ktp,
+     tb_jm_kpr.`nama_debitur` AS tb_jm_kpr_nama_debitur,
+     tb_jm_kpr.`no_vault` AS tb_jm_kpr_no_vault,
+     tb_jm_kpr.`nama_dokumen` AS tb_jm_kpr_nama_dokumen,
+     tb_jm_kpr.`no_dokumen` AS tb_jm_kpr_no_dokumen,
+     tb_jm_kpr.`keterangan` AS tb_jm_kpr_keterangan
+FROM
+     `tb_jm_kpr` tb_jm_kpr
+WHERE
+no_cif Like '%$P!{pno_cif}%'
+OR
+nama_debitur Like '%$P!{pnama_debitur}%']]>
+	</queryString>
+	<field name="tb_jm_kpr_no_cif" class="java.lang.String"/>
+	<field name="tb_jm_kpr_no_ktp" class="java.lang.String"/>
+	<field name="tb_jm_kpr_nama_debitur" class="java.lang.String"/>
+	<field name="tb_jm_kpr_no_vault" class="java.lang.String"/>
+	<field name="tb_jm_kpr_nama_dokumen" class="java.lang.String"/>
+	<field name="tb_jm_kpr_no_dokumen" class="java.lang.String"/>
+	<field name="tb_jm_kpr_keterangan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="126" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="114" y="0" width="684" height="36" uuid="30e1c0be-1b63-4cc5-9a69-ffdb24b60e5e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="26" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Monitoring Jaminan KPR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="114" y="36" width="196" height="22" uuid="51d94187-9b03-4dbe-8166-c2175dd5133a"/>
+				<textElement>
+					<font fontName="Arial" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Credit Support]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="58" width="684" height="20" uuid="7c19c97f-e7a2-4854-9199-9679cf2c6f90"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Jalan Gunung Sahari Raya No 123 ABC - Jakarta Pusat]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="115" width="802" height="1" uuid="5793e7d1-37e7-4f6a-8a06-a10670c2d464"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="118" width="802" height="1" uuid="e02fb361-0de7-4144-92ea-7c8dd52c0666"/>
+			</line>
+			<staticText>
+				<reportElement x="115" y="77" width="683" height="20" uuid="517084fd-ff7a-4554-8601-5869ee13f52c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[(021) - 12345678]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="2" width="95" height="95" uuid="45b6f3a3-acff-4a38-94b4-0e0703f0581c"/>
+				<imageExpression><![CDATA["src\\gambar\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="7026b915-91c9-40f5-88e5-b8e88da18d99"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="114" height="15" forecolor="#736343" uuid="a26ccc1d-5ab5-4f4d-88bc-1e316e9faaa7"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No CIF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="114" y="0" width="114" height="15" forecolor="#736343" uuid="a24fc2e6-b78a-4e12-9f69-e50ea52a54af"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No KTP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="228" y="0" width="114" height="15" forecolor="#736343" uuid="d983d2ec-7d3f-46fa-a773-2cab0bcce239"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nama Debitur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="342" y="0" width="114" height="15" forecolor="#736343" uuid="1aeab5aa-e024-4b2d-a3c3-713a2ee682c7"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No Vault]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="456" y="0" width="114" height="15" forecolor="#736343" uuid="010bd56c-0c3b-41f9-af37-aefc22aefb49"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nama Dokumen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="570" y="0" width="114" height="15" forecolor="#736343" uuid="52f92bf9-a270-4b80-b3a3-d3bb85905da0"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No Dokumen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="684" y="0" width="114" height="15" forecolor="#736343" uuid="7f4af2e4-76ca-41f3-8e97-5c786238737a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="8ef381e2-164a-4592-b4f9-06f5f4393ae7"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="114" height="15" uuid="aae09e72-23b1-4533-8d0b-4b88537f49ee"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_no_cif}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="114" y="0" width="114" height="15" uuid="594d8240-fd16-477e-8146-653df4585a5f"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_no_ktp}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="228" y="0" width="114" height="15" uuid="548c69d8-8ba6-41d8-9c87-c1726796b16b"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_nama_debitur}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="342" y="0" width="114" height="15" uuid="fae21e84-3521-4af7-8146-58715d8fb574"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_no_vault}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="456" y="0" width="114" height="15" uuid="5474b256-6482-4929-a545-4eee41e09ad7"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_nama_dokumen}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="570" y="0" width="114" height="15" uuid="b7ce2411-5c1f-434c-b2ba-234af723fee6"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_no_dokumen}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="684" y="0" width="114" height="15" uuid="e3c4658f-d463-4398-b89e-9f1c6f8f653a"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tb_jm_kpr_keterangan}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="106" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="c8477cc0-170a-443e-9587-a83dfd6c55e4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="673" y="14" width="125" height="20" forecolor="#000000" uuid="d33963e0-7044-4527-aa9f-9a06efb807d7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE dd MMMMM yyyy",new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="632" y="14" width="41" height="20" uuid="a0f04bcd-78a2-4952-88bf-05a52707f8ad"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jakarta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="76" width="100" height="20" uuid="c952d023-4ba5-4681-b5d2-41449877c8f0"/>
+				<text><![CDATA[Taufiq Maqbullah]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="b15e4232-0d64-4716-9985-14f1c3083f04"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="ff5c5f81-b587-4b36-89dc-f033528e92e3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="655" y="1" width="128" height="20" forecolor="#736343" uuid="7ed8ddee-2f17-4d0c-8c1f-f3775b6d1289"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Admin Credit Support "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

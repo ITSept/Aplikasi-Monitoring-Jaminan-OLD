@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="70590922-4595-4803-bec4-710bcb9634c6">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="pno_pinjaman_ukm" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pnama_debitur_ukm" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tb_kr_ukm.`no_pinjaman_ukm` AS tb_kr_ukm_no_pinjaman_ukm,
+     tb_kr_ukm.`index_` AS tb_kr_ukm_index_,
+     tb_kr_ukm.`nama_debitur_ukm` AS tb_kr_ukm_nama_debitur_ukm,
+     tb_kr_ukm.`kode_marketing` AS tb_kr_ukm_kode_marketing,
+     tb_kr_ukm.`nama_marketing` AS tb_kr_ukm_nama_marketing,
+     tb_kr_ukm.`jenis_bantex` AS tb_kr_ukm_jenis_bantex,
+     tb_kr_ukm.`jumlah_bantex` AS tb_kr_ukm_jumlah_bantex
+FROM
+     `tb_kr_ukm` tb_kr_ukm
+WHERE
+no_pinjaman_ukm Like '%$P!{pno_pinjaman_ukm}%'
+OR
+nama_debitur_ukm Like '%$P!{pnama_debitur_ukm}%']]>
+	</queryString>
+	<field name="tb_kr_ukm_no_pinjaman_ukm" class="java.lang.String"/>
+	<field name="tb_kr_ukm_index_" class="java.lang.String"/>
+	<field name="tb_kr_ukm_nama_debitur_ukm" class="java.lang.String"/>
+	<field name="tb_kr_ukm_kode_marketing" class="java.lang.String"/>
+	<field name="tb_kr_ukm_nama_marketing" class="java.lang.String"/>
+	<field name="tb_kr_ukm_jenis_bantex" class="java.lang.String"/>
+	<field name="tb_kr_ukm_jumlah_bantex" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="126" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="113" y="0" width="684" height="36" uuid="988531bf-a909-42a1-8406-47695aef5ac0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="26" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Monitoring Kredit UKM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="58" width="684" height="20" uuid="0d77a1ad-d67d-4402-97f2-27819edc5e7f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Jalan Gunung Sahari Raya No 123 ABC - Jakarta Pusat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="77" width="683" height="20" uuid="856c506c-e525-4e8a-aa59-73fcb4909e3a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[(021) - 12345678]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="113" y="36" width="196" height="22" uuid="0604f293-d7c9-42c2-9336-6588cf6182f9"/>
+				<textElement>
+					<font fontName="Arial" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Credit Support]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-1" y="115" width="802" height="1" uuid="91160bf3-ddf2-4f6d-a04e-ddc23f041f8f"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-1" y="118" width="802" height="1" uuid="1a326413-e848-4989-8025-e4215c1b1944"/>
+			</line>
+			<image>
+				<reportElement x="0" y="2" width="95" height="95" uuid="8d23d59f-19c6-4cf2-bd73-e4a7e63d525e"/>
+				<imageExpression><![CDATA["src\\gambar\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="82be9b4a-ef2c-477c-b65d-34fa9aee9d6d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="114" height="15" forecolor="#736343" uuid="6721200d-2e17-490d-9df0-01203b4626ce"/>
+				<text><![CDATA[No Pinjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="114" y="0" width="114" height="15" forecolor="#736343" uuid="5fa41a50-45e4-4e50-bf84-acf43edfa4aa"/>
+				<text><![CDATA[Index]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="228" y="0" width="114" height="15" forecolor="#736343" uuid="22402430-f997-4f47-9940-e2729d0fe069"/>
+				<text><![CDATA[Nama Debitur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="342" y="0" width="114" height="15" forecolor="#736343" uuid="1824dc8a-7d9d-4031-980c-c2d5b8187ac3"/>
+				<text><![CDATA[Kode Marketing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="456" y="0" width="114" height="15" forecolor="#736343" uuid="bb0c84da-20ef-4591-9eeb-0e4700753cce"/>
+				<text><![CDATA[Nama Marketing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="570" y="0" width="114" height="15" forecolor="#736343" uuid="df93d47f-d92d-48c5-9870-91e2a7a64cd8"/>
+				<text><![CDATA[Jenis Bantex]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="684" y="0" width="114" height="15" forecolor="#736343" uuid="d14e850a-c0cb-4e2e-be3d-f67f7988d7c0"/>
+				<text><![CDATA[Jumlah Bantex]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="3f4c5f57-1e58-4303-a54b-f39900e9e265"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="114" height="15" uuid="7a835743-4c5c-4191-bc0e-e4fe176cdeab"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_no_pinjaman_ukm}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="114" y="0" width="114" height="15" uuid="a2a529a5-71d4-4253-8055-9816978cbab3"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_index_}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="228" y="0" width="114" height="15" uuid="a7610989-2da9-47e2-93f9-ab2cf03aa065"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_nama_debitur_ukm}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="342" y="0" width="114" height="15" uuid="7253b1f5-89b1-47a3-a8a4-a053a1e4881f"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_kode_marketing}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="456" y="0" width="114" height="15" uuid="de6872e6-5d60-4187-9f6e-734ca70499ac"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_nama_marketing}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="570" y="0" width="114" height="15" uuid="f3d9a62b-0080-448e-a595-3f3626d5e814"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_jenis_bantex}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="684" y="0" width="114" height="15" uuid="53a5a226-35f8-4c98-8662-71795928f3ab"/>
+					<textFieldExpression><![CDATA[$F{tb_kr_ukm_jumlah_bantex}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="110" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="ad03ad45-d6ee-4eed-b63f-310f5b9944a9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="676" y="18" width="125" height="20" forecolor="#000000" uuid="cb6cbcb4-31c4-4bdd-94bf-aac9904c9cfe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE dd MMMMM yyyy",new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="635" y="18" width="41" height="20" uuid="f22763f8-2fb1-401f-a5c3-43c59cdb9bcf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jakarta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="635" y="80" width="100" height="20" uuid="41ea7218-fd08-43a4-873b-7a25f3ea2e17"/>
+				<text><![CDATA[Taufiq Maqbullah]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="9e886fe4-bc5f-4903-81b3-5eb7aef3ed9e"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="e7a778d9-2967-4b8e-94ea-1d49b1355e8c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="640" y="1" width="143" height="20" forecolor="#736343" uuid="e7da6af6-eed9-4e49-9175-d050df07a04c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Admin Credit Support "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
